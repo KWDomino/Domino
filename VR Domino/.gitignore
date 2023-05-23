@@ -1,0 +1,6 @@
+# only Assets, Packages, ProjectSettings
+
+Library/
+Logs/
+obj/
+UserSettings/
