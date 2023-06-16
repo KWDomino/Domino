@@ -1073,6 +1073,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Domino Coloring",
+            "id": "2f886b23-05ff-4556-9e0d-8cbe6a020973",
+            "actions": [
+                {
+                    "name": "Coloring LeftHand",
+                    "type": "Value",
+                    "id": "c618d4ca-5ece-4cea-bb32-194b18763821",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a56e8c50-bcac-4b2d-8158-21f1b2d4a5fc",
+                    "path": "<XRController>{LeftHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Coloring LeftHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
