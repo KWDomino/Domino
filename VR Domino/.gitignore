@@ -5,3 +5,10 @@ Logs/
 obj/
 UserSettings/
 Temp/
+
+# VS related
+
+.vsconfig
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp.csproj
+VR Domino.sln
