@@ -36,22 +36,18 @@ public class PressPos : MonoBehaviour
     {
         Vector3 position = hand_position.action.ReadValue<Vector3>();
         Quaternion rotation = hand_rotation.action.ReadValue<Quaternion>();
-        Vector3 direction = rotation.eulerAngles;
 
-        UpdateRay(position, direction);
+        UpdateRay(position, rotation);
     }
 
-    private void UpdateRay(Vector3 position, Vector3 direction)
+    private void UpdateRay(Vector3 position, Quaternion direction)
     {
         GameObject camOffset = GameObject.Find("Camera Offset");
         Vector3 cam_pos = camOffset.transform.position;
-
-        Vector3 direct = new Vector3();
+        Vector3 direct = new Vector3(0, 0, 1);
 
         position += cam_pos;
-        direct.x = (float)(-Math.Cos(DegreeToRadian(direction.y) + Math.PI / 2));
-        direct.y = (float)(-Math.Sin(DegreeToRadian(direction.x)));
-        direct.z = (float)(Math.Cos(DegreeToRadian(direction.x)) * Math.Sin(DegreeToRadian(direction.y) + Math.PI / 2));
+        direct = direction * direct;
 
 
         hand_ray = new Ray();
@@ -70,8 +66,8 @@ public class PressPos : MonoBehaviour
                 {
                     hand_rayhit.transform.GetComponent<MeshRenderer>().material.color = color_domino;
                 }
-               
-            }      
+
+            }
         }
     }
 }

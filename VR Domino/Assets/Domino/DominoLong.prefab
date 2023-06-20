@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7444774671919509247}
   - component: {fileID: 6951711148844752829}
   m_Layer: 3
-  m_Name: Domino
+  m_Name: DominoLong
   m_TagString: Domino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7543993013315839257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.25, z: 0.04}
+  m_LocalScale: {x: 1, y: 0.25, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

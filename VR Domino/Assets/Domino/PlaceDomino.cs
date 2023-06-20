@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlaceDomino : MonoBehaviour
 {
+    public GameObject firstDominoPrefab;    // prefab to instantiate : first Domino
     public GameObject dominoPrefab;         // prefab to instantiate
     public float dominoSpawnRate = 0.2f;    // distance between dominos
+
+    public float spawnHeight = 0.2f;        // height where domino spawns
 
     private Vector3 previousPos;            // position of previously placed domino
     private Vector3 currentPos;             // position of right hand controller
@@ -18,9 +21,13 @@ public class PlaceDomino : MonoBehaviour
     void Start()
     {
         currentPos = GameObject.Find("RightHand Controller").transform.position;
-        currentPos.y = 0.5f;
+        
+        currentPos.y = 0.0f;
+        Quaternion q = Quaternion.LookRotation(currentPos);
 
-        GameObject domino = Instantiate(dominoPrefab, currentPos, transform.rotation);
+        currentPos.y = spawnHeight;
+        GameObject domino = Instantiate(firstDominoPrefab, currentPos, q);
+
         previousPos = currentPos;
         previousDomino = domino;
     }
@@ -33,7 +40,7 @@ public class PlaceDomino : MonoBehaviour
 
         if (distance >= dominoSpawnRate)
         {
-            currentPos.y = 0.5f;
+            currentPos.y = spawnHeight;
 
             GameObject domino = Instantiate(dominoPrefab, currentPos, transform.rotation);
             domino.transform.LookAt(previousPos);
@@ -56,7 +63,7 @@ public class PlaceDomino : MonoBehaviour
                 previousDomino.transform.LookAt(currentPos + prevDominoTarget);
             }
 
-            currentPos.y = 0.5f;
+            currentPos.y = spawnHeight;
             previousDominoTarget = currDominoTarget;
             previousPos = currentPos;
             previousDomino = domino;

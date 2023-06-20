@@ -16,24 +16,13 @@ public class OnAndOff : MonoBehaviour
     {
         Button btn = button.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
-        state = Target.activeSelf;
-
     }
     
     void TaskOnClick()
     {
         state = Target.activeSelf;
 
-        if (state == true)
-        {
-            Target.SetActive(false);      
-            state = false;
-        }
-
-        else
-        {
-            Target.SetActive(true);
-            state = true;
-        }
+        Target.SetActive(!state);
+        state = !state;
     }
 }
